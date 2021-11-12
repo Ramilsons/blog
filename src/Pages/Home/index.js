@@ -5,12 +5,13 @@ import Footer from './../common/components/footer/footer.js'
 import MainImage from './components/main-image/index.js';
 import MostRecents from './components/most-recents/index.js';
 import { GlobalStyle } from './../global-styled.js';
+import Token from './../tokenApi.js'
 //import { Date, Link, RichText } from 'prismic-reactjs'
 
 function App() {
 
     const apiEndpoint = 'https://pontoevirgula.prismic.io/api/v2'
-    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoibWFjaGluZTJtYWNoaW5lIiwiZGJpZCI6InBvbnRvZXZpcmd1bGEtNTY5Y2M0YmYtODFjNC00ZDM2LTkxYTctZTA1MWQ0MDMwYzg0XzQiLCJkYXRlIjoxNjM2NTAwMzkxLCJkb21haW4iOiJwb250b2V2aXJndWxhIiwiaWF0IjoxNjM2NTAwMzkxfQ.83tv45XsnzAdF8qTQ4qe5F7pTcpcKTLjxJUIUqwqAxo'
+    const accessToken = Token
 
     const client = Prismic.client(apiEndpoint, { accessToken })
 
