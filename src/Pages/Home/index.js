@@ -11,12 +11,12 @@ import Token from './../tokenApi.js'
 function App() {
 
     const apiEndpoint = 'https://pontoevirgula.prismic.io/api/v2'
-    const accessToken = Token
+    const accessToken = Token()
 
     const client = Prismic.client(apiEndpoint, { accessToken })
 
     const [doc, setDocData] = React.useState(null)
-    const [mainPost, setMainPost] = React.useState(null)
+
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -25,15 +25,12 @@ function App() {
             )
             if (response) {
                 setDocData(response.results)
-                insertMainPost(response.results)
             }
         }
         fetchData()
     }, [])
 
-    function insertMainPost(val) {
-        setMainPost(val[1])
-    }
+
 
     function showPosts() {
         console.log(doc)
@@ -43,9 +40,9 @@ function App() {
         <>
             <GlobalStyle />
             <Header />
-            <MainImage
-                mainPost={mainPost} />
-            <MostRecents />
+
+            {doc ? (<><MainImage mainPost={doc} /><MostRecents /></>) : <h1>Carregando</h1>}
+
             <button onClick={showPosts}>Clique aqui</button>
             <Footer />
         </>
