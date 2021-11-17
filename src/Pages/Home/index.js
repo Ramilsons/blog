@@ -4,6 +4,7 @@ import Header from './../common/components/header/header.js'
 import Footer from './../common/components/footer/footer.js'
 import MainImage from './components/main-image/index.js';
 import MostRecents from './components/most-recents/index.js';
+import { BasicElement } from '../common/components/placeloader/styled.js';
 import { GlobalStyle } from './../global-styled.js';
 import Token from './../tokenApi.js'
 //import { Date, Link, RichText } from 'prismic-reactjs'
@@ -41,7 +42,7 @@ function App() {
             <GlobalStyle />
             <Header />
 
-            {doc ? (<><MainImage mainPost={doc} /><MostRecents /></>) : <h1>Carregando</h1>}
+            {doc ? (<><MainImage mainPost={doc} /><MostRecents /></>) : <BasicElement style={{ height: '0', marginBottom: '100%' }}></BasicElement>}
 
             <button onClick={showPosts}>Clique aqui</button>
             <Footer />
