@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './styled'
 import Logo from './../../../../images/logo.svg'
 import SearchIcon from './../../../../images/mobile/header/search-icon.svg'
+import { useHistory, Link } from 'react-router-dom';
 
 
 
@@ -26,7 +27,9 @@ export default function Header() {
                     </S.MenuButtonContainer>
                 </S.MenuContainer>
                 <h1>
-                    <img src={Logo} alt="" />
+                    <Link to="/">
+                        <img src={Logo} alt="" />
+                    </Link>
                 </h1>
                 <S.NavMenu>
                     <S.MenuList>
